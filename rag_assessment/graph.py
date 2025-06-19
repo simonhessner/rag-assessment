@@ -6,8 +6,8 @@ from langchain_ollama.llms import OllamaLLM
 from langgraph.graph import START, StateGraph
 from vector_store import get_store
 
-prompt = hub.pull("rlm/rag-prompt")  # TODO other prompts
-llm = OllamaLLM(model="llama3.2:latest")  # TODO other models
+prompt = hub.pull("rlm/rag-prompt")
+llm = OllamaLLM(model="llama3.2:latest")
 
 vector_store = get_store()
 

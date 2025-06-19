@@ -5,11 +5,14 @@ description = "Coding test"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
+    "evaluate>=0.4.3",
     "langchain>=0.3.25",
     "langchain-chroma>=0.2.4",
     "langchain-huggingface>=0.3.0",
     "langchain-ollama>=0.3.3",
     "langgraph>=0.4.8",
+    "nltk>=3.9.1",
+    "rouge-score>=0.1.2",
     "sentence-transformers>=4.1.0",
     "wikipedia-api>=0.8.1",
 ]
