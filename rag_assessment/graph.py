@@ -4,11 +4,12 @@ from langchain import hub
 from langchain_core.documents import Document
 from langchain_ollama.llms import OllamaLLM
 from langgraph.graph import START, StateGraph
-
-from vector_store import vector_store
+from vector_store import get_store
 
 prompt = hub.pull("rlm/rag-prompt")  # TODO other prompts
 llm = OllamaLLM(model="llama3.2:latest")  # TODO other models
+
+vector_store = get_store()
 
 
 class State(TypedDict):
