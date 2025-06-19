@@ -55,3 +55,10 @@ uv run rag_assessment/evaluate_metrics.py
     length_ratio: 0.1480927449513837
     translation_length: 198
     reference_length: 1337
+
+
+## Report
+
+It was fun to work on this project. If I had more time I would have added more evaluations such as LLM-as-a-judge. Unfortunately I don't have a lot of time left, so I am unable to write a more detailed report.
+
+Please let me know if there are any problems with the code.
