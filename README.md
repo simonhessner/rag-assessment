@@ -23,3 +23,7 @@ uv run rag_assessment/main.py https://en.wikipedia.org/wiki/History_of_physics
 ```
 uv run rag_assessment/evaluate_metrics.py
 ```
+
+## Report
+
+in progress
