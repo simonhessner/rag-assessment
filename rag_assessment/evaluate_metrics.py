@@ -14,25 +14,30 @@ def answer_question(page, question):
         }
     )
 
-    return response["answer"]
+    return response["answer"], response["context"]
 
 
 if __name__ == "__main__":
     questions = [
-        "Create a brief summary of key discoveries in modern physics",
-        "Provide the structure of a NDA as a bullet points list.",
-    ]
-    answers = [
-        answer_question(
+        (
             "https://en.wikipedia.org/wiki/History_of_physics",
-            questions[0],
+            "Create a brief summary of key discoveries in modern physics",
         ),
-        answer_question(
+        (
             "https://en.wikipedia.org/wiki/Non-disclosure_agreement",
-            questions[1],
+            "Provide the structure of a NDA as a bullet points list.",
         ),
     ]
 
+    answers = []
+    contexts = []
+
+    for page, question in questions:
+        answer, context = answer_question(page, question)
+        answers.append(answer)
+        contexts.append("\n".join([doc.page_content for doc in context]))
+
+    print("COMPARING ANSWERS TO QUESTIONS")
     print("Rouge scores:")
     rouge_scores = rouge.compute(predictions=answers, references=questions)
     for key, value in rouge_scores.items():
@@ -41,5 +46,18 @@ if __name__ == "__main__":
     print()
     print("Bleu scores:")
     bleu_scores = bleu.compute(predictions=answers, references=questions)
+    for key, value in bleu_scores.items():
+        print(f"{key}: {value}")
+
+    print("--------------------------------")
+    print("COMPARING ANSWERS TO CONTEXTS")
+    print("Rouge scores:")
+    rouge_scores = rouge.compute(predictions=answers, references=contexts)
+    for key, value in rouge_scores.items():
+        print(f"{key}: {value}")
+
+    print()
+    print("Bleu scores:")
+    bleu_scores = bleu.compute(predictions=answers, references=contexts)
     for key, value in bleu_scores.items():
         print(f"{key}: {value}")
