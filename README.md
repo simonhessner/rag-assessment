@@ -2,7 +2,8 @@
 
 ## Install ollama and download llama3.2:latest
 
-TODO explain
+1. Download ollama from https://ollama.com/ 
+2. pull llama3.2:latest using `ollama pull llama3.2:latest`
 
 ## Fill database
 ```
